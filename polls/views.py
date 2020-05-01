@@ -21,5 +21,5 @@ def search(response):
 	valor = (100 * discount) * (1 + roe)**years
 	valor = round(valor,2)
 
-	return HttpResponse(f"If you invest 100$ the value of the company after {years} years will be {valor}$")
+	return HttpResponse(f"If you invest 100$ the value of the company after {years} years will be {valor}, sme equity = {valor*(1/discount)}")
 
