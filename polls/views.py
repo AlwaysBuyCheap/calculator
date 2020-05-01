@@ -17,9 +17,11 @@ def search(response):
 	years = int(response.GET["years"])
 	roe = float(response.GET["roe"])
 
+	pe = marketcap/(roe*pn)
+
 	discount = pn/marketcap
 	valor = (100 * discount) * (1 + roe)**years
 	valor = round(valor,2)
 
-	return HttpResponse(f"If you invest 100$ the value of the company after {years} years will be {valor}, sme equity = {valor*(1/discount)}")
+	return HttpResponse(f"If you invest 100$ the value of the company after {years} years will be {valor}, futurecap = {valor*roe*pe}")
 
